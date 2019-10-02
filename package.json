@@ -1,0 +1,18 @@
+{
+  "name": "dw-gravatar",
+  "version": "0.0.0-development",
+  "main": "dw-gravatar.js",
+  "repository": "https://github.com/DreamworldSolutions/dw-gravatar.git",
+  "author": "navnit kapadiya <navnitkapadiya.dream@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DreamworldSolutions/dw-gravatar/issues"
+  },
+  "homepage": "https://github.com/DreamworldSolutions/dw-gravatar#README",
+  "devDependencies": {
+    "semantic-release": "beta"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
