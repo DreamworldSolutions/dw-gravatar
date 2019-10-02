@@ -1,5 +1,5 @@
 {
-  "name": "dw-gravatar",
+  "name": "@dreamworld/dw-gravatar",
   "version": "0.0.0-development",
   "main": "dw-gravatar.js",
   "repository": "https://github.com/DreamworldSolutions/dw-gravatar.git",
@@ -14,5 +14,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "lit-element": "^2.2.1"
   }
 }
