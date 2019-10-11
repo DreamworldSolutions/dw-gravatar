@@ -46,6 +46,9 @@ class DwGravatar extends LitElement {
        */
       placeholder: {
         type: String
+      },
+      _imageUrl: {
+        type: String
       }
     }
   }
@@ -56,27 +59,32 @@ class DwGravatar extends LitElement {
   }
 
   render() {
-    return html`<img class="avatar" src="${this._getGravatar(this.email)}" width="${this.size}" height="${this.size}"/>`;
+    return html`<img class="avatar" src="${this._imageUrl || this.placeholder}" width="${this.size}" height="${this.size}"/>`;
   }
-
+  updated(changedProps) {
+    if (changedProps.has('email')) {
+      this._manageImageUrlProp();
+    }
+  }
   /**
-   * If email is not found shows placeholder other wise return url of gravatar
-   * If image not found in gravatar it will shows placeholder
-   * @param {String} email
+   * Invoked when email changed
+   * Invoked api for getting gravatar for email if found set `_imageUrl` otherwise placeholder will be set as placeholder
    */
-  _getGravatar(email) {
-    if (!email) {
-      return this.placeholder;
+  _manageImageUrlProp() {
+    if (this.email) {
+      var url = `https://www.gravatar.com/avatar/${md5(this.email, 32)}?s=${this.size}`;
+      fetch(`${url}&d=404`).then(res => {
+        if (res.status === 404) {
+          this._imageUrl = this.placeholder;
+        } else {
+          this._imageUrl = url;
+        }
+      }).catch(error => {
+        console.error(error);
+      })
+    } else {
+      this._imageUrl = this.placeholder;
     }
-    let url = `https://www.gravatar.com/avatar/${md5(email, 32)}?s=${this.size}&d=404`;
-    var http = new XMLHttpRequest();
-
-    http.open('HEAD', url, false);
-    http.send();
-    if (http.status === 404) {
-      return this.placeholder;
-    }
-    return url;
   }
 }
 customElements.define('dw-gravatar', DwGravatar);
