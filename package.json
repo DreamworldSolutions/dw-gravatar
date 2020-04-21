@@ -1,5 +1,5 @@
 {
-  "name": "dw-gravatar",
+  "name": "@dreamworld/dw-gravatar",
   "version": "0.0.0-development",
   "main": "dw-gravatar.js",
   "repository": "https://github.com/DreamworldSolutions/dw-gravatar.git",
@@ -10,9 +10,39 @@
   },
   "homepage": "https://github.com/DreamworldSolutions/dw-gravatar#README",
   "devDependencies": {
-    "semantic-release": "beta"
+    "@dreamworld/flex-layout": "^1.0.0",
+    "@dreamworld/material-styles": "^1.1.0",
+    "@material/mwc-formfield": "^0.7.1",
+    "@material/mwc-switch": "^0.7.1",
+    "@webcomponents/webcomponentsjs": "^2.2.10",
+    "semantic-release": "16.0.0-beta.23"
+  },
+  "resolutions": {
+    "@material/mwc-base": "0.7.0",
+    "@material/base": "3.1.0",
+    "@semantic-release/npm": "5.2.0-beta.5",
+    "find-up": "3.0.0",
+    "string-width": "2.1.1",
+    "y18n": "4.0.0",
+    "strip-ansi": "4.0.0",
+    "ansi-regex": "3.0.0",
+    "is-fullwidth-code-point": "2.0.0",
+    "locate-path": "3.0.0",
+    "p-locate": "3.0.0",
+    "p-limit": "2.2.1",
+    "p-try": "2.2.0",
+    "execa": "1.0.0",
+    "cross-spawn": "6.0.5",
+    "get-stream": "4.1.0",
+    "semver": "5.7.1",
+    "pump": "3.0.0"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "lit-element": "^2.2.1",
+    "md5": "^2.2.1",
+    "md5js": "^1.0.7"
   }
 }
