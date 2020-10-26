@@ -10,9 +10,20 @@
   },
   "homepage": "https://github.com/DreamworldSolutions/dw-gravatar#README",
   "devDependencies": {
-    "semantic-release": "beta"
+    "semantic-release": "17.0.8"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "release": {
+    "branches": [
+      "+([0-9])?(.{+([0-9]),x}).x",
+      "master",
+      {
+        "name": "feature/*",
+        "prerelease": "${name.replace(/^feature\\//g,\"\")}",
+        "channel": "${name.replace(/^feature\\//g,\"\")}"
+      }
+    ]
   }
 }
